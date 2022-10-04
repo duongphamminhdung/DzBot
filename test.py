@@ -1,10 +1,10 @@
 import discord
-import os
 
-TOKEN = os.getenv('TOKEN')
+Token = 'MTAxMzExNTk4NjUyMzcxNzY2Mw.GKDQit.NgI62hZXj6Z_stIo-7cmLk5KM_M3Itg-t7_HwA'
 GuildName = 'cuộc họp của những ông trùm đệ thầy bống'
 intents = discord.Intents.default()
 intents.messages = True
+intents.members = True
 client = discord.Client(intents = intents)
 
 @client.event
@@ -17,13 +17,9 @@ async def on_message(message):
     if message.author == client.user:
         print("stop")
         return
-    prefix = 'Dz '
     print("received")
-    channel = message.channel.name
-    command = message.content[len(prefix):]
+    print(message.content)
+    if message.content == 'wlc':
+        await message.channel.send()
     
-        
-async def getmsg(ctx, channel, member):
-    msg = discord.utils.get(await channel.history(limit = 1).flatten(), author = member)
-    return msg
-client.run(TOKEN)
+client.run(Token)
