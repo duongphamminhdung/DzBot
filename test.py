@@ -9,17 +9,8 @@ client = discord.Client(intents = intents)
 
 @client.event
 async def on_ready():
-    guild = discord.utils.get(client.guilds, name=GuildName)
-    print('{name} logged in {guildname} with the id:{id}'.format(name=client.user, guildname=guild.name, id=guild.id))
+    guild = client.get_guild(1003713859594489926)
+    print(guild.name)
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        print("stop")
-        return
-    print("received")
-    print(message.content)
-    if message.content == 'wlc':
-        await message.channel.send()
     
 client.run(Token)
