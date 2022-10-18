@@ -2,15 +2,13 @@ import requests
 import random
 
 mentioned = '''
-{user}
 Hiii this is my mini bot
 my prefix is "Dz"
-type 'Dz help' for more help
+find out our command? type
+System call inspect entire command list
 '''
 
 help = '''
-u can try....
-system call inspect entire command list (watched SAO, didn't u?)
 
 category
 
@@ -54,7 +52,7 @@ def random_num(N):
 def playgame(game):
     print("playgame...")
     if game == 'coin':
-        return ('<@{id}> Tung đồng xu......... '+random.choice(['Xấp', 'Ngửa']))
+        return ('<@{id}> Tossing the coin......... '+random.choice(['Head', 'Tail']))
     elif game == 'dice':
         return ('<@{id}> congrats, your dice rolled '+str(random.randint(1, 6)))
 

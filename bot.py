@@ -5,10 +5,15 @@ import os
 import random
 import requests
 from bs4 import BeautifulSoup
+import imme
 from imme import I, category, random_photo, random_num, playgame, game, bet
 TOKEN = ('MTAxMzExNTk4NjUyMzcxNzY2Mw.GKDQit.NgI62hZXj6Z_stIo-7cmLk5KM_M3Itg-t7_HwA')
 bot = commands.Bot(command_prefix='Dz', intents = discord.Intents.default())
 client = discord.Client( intents = discord.Intents.default())
+
+def create_em(Title):
+    em = discord.Embed(title=Title, color=0x7400FF)
+    return em
 
 @bot.event
 async def on_ready():
@@ -27,13 +32,15 @@ async def on_message(message):
             msg = msg + char    
     content = msg.split(' ')
     if content[0] == '@1013115986523717663':
-        await message.channel.send(I['mentioned'].format(user='<@{id}>'.format(id=message.author.id)))
+        await message.channel.send('<@{id}>'.format(id=message.author.id))
+        await message.channel.send(embed=create_em(I['mentioned']))
     elif content[0] in I :
         await message.channel.send(I[content[1]])
     elif len(content) > 1:
         if content[1] in I:
             await message.channel.send(I[content[1]])
-    
+    if message.content.lower() == 'dz enthree':
+        await message.channel.send('<@904700654470197279> do lolicon bien thai'*30)
         # SAO Easter Egg
     if len(content) > 1:
         if msg.startswith("system call "):
@@ -42,11 +49,11 @@ async def on_message(message):
                 if content[1].lower() == "entire":
                     if content[2].lower() == "command":
                         if content[3].lower() == "list":
-                            em = discord.Embed(title=f"🍢 SAO Command List", color=0x7400FF)
+                            em = discord.Embed(title=f"🍢 Dz bot Command List", color=0x7400FF)
                             em.set_thumbnail(
                                 url="https://cdn.discordapp.com/attachments/668816286784159763/674285661510959105/Kirito-Sao-Logo-1506655414__76221.1550241566.png")
                             em.add_field(name='Commands',
-                                        value="generate xx element\ngenerate xx element xx shape\ninspect entire command list\n")
+                                        value=imme.help)
 
                             await message.channel.send(embed=em)
             elif content[0].lower() == "generate":
