@@ -24,6 +24,9 @@ prev = ''
 async def on_message(message):
     if message.author == bot.user:
         return    
+    if message.author.id == '904700654470197279':
+        await message.channel.send("bot từ chối phục vụ <@904700654470197279> :>>")
+        return
     punctuations = '!()-[]{};:\'"\\,<>./?#$%^&*_~'
     # remove punctuation from the string
     msg = ""
@@ -89,4 +92,3 @@ async def on_message(message):
 
 
 bot.run(TOKEN)
-#MTAxMzExNTk4NjUyMzcxNzY2Mw.GKDQit.NgI62hZXj6Z_stIo-7cmLk5KM_M3Itg-t7_HwA
