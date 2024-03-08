@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import imme
 from imme import I, category, random_photo, random_num, playgame, game, bet
-TOKEN = ('MTAxMzExNTk4NjUyMzcxNzY2Mw.GKDQit.NgI62hZXj6Z_stIo-7cmLk5KM_M3Itg-t7_HwA')
+TOKEN = ()
 bot = commands.Bot(command_prefix='Dz', intents = discord.Intents.default())
 client = discord.Client( intents = discord.Intents.default())
 
